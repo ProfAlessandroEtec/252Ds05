@@ -1,26 +1,31 @@
-CREATE TABLE produtos (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    titulo VARCHAR(100) NOT NULL,
-    descricao TEXT NOT NULL,
-    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 21-Maio-2025 às 03:42
+-- Versão do servidor: 10.4.32-MariaDB
+-- versão do PHP: 8.2.12
 
-id: chave primária com incremento automático.
-
-titulo: nome do produto ou serviço (até 100 caracteres).
-
-descricao: campo de texto com a descrição.
-
-criado_em: marca o momento de inserção (timestamp automático).
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
-INSERT INTO produtos (titulo, descricao) VALUES
-('Criação de Sites', 'Desenvolvemos sites modernos, responsivos e otimizados para SEO.'),
-('Consultoria em TI', 'Ajudamos sua empresa a encontrar as melhores soluções tecnológicas.'),
-('Manutenção de Sistemas', 'Correções, atualizações e suporte técnico especializado.');
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
+--
+-- Banco de dados: `aula`
+--
 
+-- --------------------------------------------------------
 
+--
+-- Estrutura da tabela `cliente`
+--
 
 CREATE TABLE `cliente` (
   `id` int(11) NOT NULL,
@@ -36,6 +41,48 @@ CREATE TABLE `cliente` (
 INSERT INTO `cliente` (`id`, `nome`, `email`, `mensagem`) VALUES
 (1, 'Alessandro', 'ale.sr50@gmail.com', 'Ola');
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `produtos`
+--
+
+CREATE TABLE `produtos` (
+  `id` int(11) NOT NULL,
+  `titulo` varchar(100) NOT NULL,
+  `descricao` text NOT NULL,
+  `criado_em` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `produtos`
+--
+
+INSERT INTO `produtos` (`id`, `titulo`, `descricao`, `criado_em`) VALUES
+(1, 'Criação de Sites', 'Desenvolvemos sites modernos, responsivos e otimizados para SEO.', '2025-04-24 00:29:06'),
+(2, 'Consultoria em TI', 'Ajudamos sua empresa a encontrar as melhores soluções tecnológicas.', '2025-04-24 00:29:06'),
+(3, 'Manutenção de Sistemas', 'Correções, atualizações e suporte técnico especializado.', '2025-04-24 00:29:06');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `idUsuario` int(11) NOT NULL,
+  `nomeUsuario` varchar(255) NOT NULL,
+  `emailUsuario` varchar(150) NOT NULL,
+  `senhausuario` varchar(180) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`idUsuario`, `nomeUsuario`, `emailUsuario`, `senhausuario`) VALUES
+(1, 'ale', 'ale.sr50@gmail.com', 'ale123');
+
 --
 -- Índices para tabelas despejadas
 --
@@ -47,6 +94,18 @@ ALTER TABLE `cliente`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices para tabela `produtos`
+--
+ALTER TABLE `produtos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`idUsuario`);
+
+--
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
@@ -55,4 +114,20 @@ ALTER TABLE `cliente`
 --
 ALTER TABLE `cliente`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `produtos`
+--
+ALTER TABLE `produtos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de tabela `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
