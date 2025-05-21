@@ -1,0 +1,58 @@
+CREATE TABLE produtos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(100) NOT NULL,
+    descricao TEXT NOT NULL,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+id: chave primária com incremento automático.
+
+titulo: nome do produto ou serviço (até 100 caracteres).
+
+descricao: campo de texto com a descrição.
+
+criado_em: marca o momento de inserção (timestamp automático).
+
+
+INSERT INTO produtos (titulo, descricao) VALUES
+('Criação de Sites', 'Desenvolvemos sites modernos, responsivos e otimizados para SEO.'),
+('Consultoria em TI', 'Ajudamos sua empresa a encontrar as melhores soluções tecnológicas.'),
+('Manutenção de Sistemas', 'Correções, atualizações e suporte técnico especializado.');
+
+
+
+
+CREATE TABLE `cliente` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `mensagem` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `cliente`
+--
+
+INSERT INTO `cliente` (`id`, `nome`, `email`, `mensagem`) VALUES
+(1, 'Alessandro', 'ale.sr50@gmail.com', 'Ola');
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `cliente`
+--
+ALTER TABLE `cliente`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `cliente`
+--
+ALTER TABLE `cliente`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
